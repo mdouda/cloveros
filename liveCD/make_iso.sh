@@ -35,7 +35,7 @@ fi
 
 # Download latest debian-live-x.x.x-amd64-xfce-desktop.iso from debian
 debain_iso="https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/debian-live-8.8.0-amd64-xfce-desktop.iso"
-## TODO: Uncomment wget "$debian_iso"
+wget "$debian_iso"
 export iso=$(ls "$(pwd)"/debian-live-* | tail -n1 | sed 's!.*/!!')
 
 # Extract iso contents
