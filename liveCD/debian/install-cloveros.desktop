@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Install CloverOS
+Comment=Install this system permanently to your hard disk
+Exec=sudo /usr/bin/CloverOS
+Icon=debian-installer-launcher
+Type=Application
+Categories=Application;System;
+StartupNotify=true
+Terminal=true
