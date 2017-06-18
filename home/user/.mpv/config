@@ -1,6 +1,5 @@
 screenshot-format=png
 screenshot-png-compression=4
-screenshot-high-bit-depth=yes
 screenshot-tag-colorspace=yes
 screenshot-template="%F_%P"
 
