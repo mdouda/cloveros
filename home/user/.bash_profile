@@ -1,12 +1,12 @@
 if [ -z "$DISPLAY" ]; then
-    echo "WM Options: (y) Default (3) i3 (a) Awesome (k) KDE (m) MATE (x) XFCE (l) LXDE"
+    echo "WM Options: (y) Default (i) i3 (a) Awesome (k) KDE (m) MATE (x) XFCE (l) LXDE"
     read -p "Start X? [y/n]" -n 1 choice
     declare -A wms
     declare -A wmspkg
     declare -A wmspost
     wms[y]=twm
     wms[Y]=twm
-    wms[3]=i3
+    wms[i]=i3
     wms[a]=awesome
     wms[k]=startkde
     wms[m]=mate-session
@@ -14,7 +14,7 @@ if [ -z "$DISPLAY" ]; then
     wms[l]=startlxde
     wmpkgs[y]=twm
     wmspkg[Y]=twm
-    wmspkg[3]=i3
+    wmspkg[i]=i3
     wmspkg[a]=awesome
     wmspkg[k]=plasma-desktop
     wmspkg[m]=mate
@@ -22,7 +22,7 @@ if [ -z "$DISPLAY" ]; then
     wmspkg[l]=lxde-meta
     wmspost[y]="feh --bg-max wallpaper.png"
     wmspost[Y]="feh --bg-max wallpaper.png"
-    wmspost[3]="feh --bg-max wallpaper.png"
+    wmspost[i]="feh --bg-max wallpaper.png"
     wmspost[a]="feh --bg-max wallpaper.png"
     wmspost[k]=""
     wmspost[m]="feh --bg-max wallpaper.png"
