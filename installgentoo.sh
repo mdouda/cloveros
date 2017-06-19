@@ -21,7 +21,7 @@ mount --rbind /sys sys
 cat << EOF | chroot .
 
 emerge-webrsync
-echo -e '\nMAKEOPTS="-j8"\nEMERGE_DEFAULT_OPTS="--keep-going=y --autounmask-write=y --jobs=2 -G"\nCFLAGS="-O3 -pipe -march=native"\nCXXFLAGS="${CFLAGS}"' >> /etc/portage/make.conf
+echo -e '\nMAKEOPTS="-j8"\nEMERGE_DEFAULT_OPTS="--keep-going=y --autounmask-write=y --jobs=2 -G"\nCFLAGS="-O3 -pipe -march=native"\nCXXFLAGS="\${CFLAGS}"' >> /etc/portage/make.conf
 
 emerge gentoo-sources genkernel
 wget http://liquorix.net/sources/4.9/config.amd64
