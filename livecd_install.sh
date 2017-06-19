@@ -52,8 +52,8 @@ grub-mkconfig > /boot/grub/grub.cfg
 
 sed -i "s/set timeout=5/set timeout=0/" /boot/grub/grub.cfg
 sed -i "s@c1:12345:respawn:/sbin/agetty -a user --noclear 38400 tty1 linux@c1:12345:respawn:/sbin/agetty --noclear 38400 tty1 linux@" /etc/inittab
+sed -i '/^#/!d' /home/user/.bash_profile
 sed -i 's/^#\(.*\)/\1/g' /home/user/.bash_profile
-sed -i '$ d' /home/user/.bash_profile
 sed -i "s@/home/user/@/home/$user/@" /home/user/.rtorrent.rc
 
 gpasswd -a $user wheel
