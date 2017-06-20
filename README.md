@@ -20,11 +20,6 @@ CloverOS GNU/Linux is a GNU/Linux distro that runs on Gentoo GNU/Linux. It consi
 
 `emerge -uavD filezilla world`
 
-### Installing DE
-`emerge mate` / `emerge plasma-desktop` / `emerge lxde-meta` / `emerge xfce-meta`
-
-`sed -i "s/twm/startxfce4/" ~/.bash_profile`
-
 ## FAQ
 
 ### Is this an overlay?
@@ -61,6 +56,9 @@ FTP client - filezilla
 Torrent client - rtorrent
 
 IRC client - weechat
+
+### Installing a DE
+After you log in and the "Start X?" dialog pops up, instead of y/n, type one of the WM options and hit y when it asks to install.
 
 ### Package isn't available
 Make an issue so I can add the package. In the meantime, edit /etc/portage/make.conf and edit the following line:
