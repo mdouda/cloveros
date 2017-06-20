@@ -103,6 +103,7 @@ wget https://raw.githubusercontent.com/chiru-no/cloveros/master/home/user/.twmrc
 wget https://raw.githubusercontent.com/chiru-no/cloveros/master/home/user/.Xdefaults
 wget https://raw.githubusercontent.com/chiru-no/cloveros/master/home/user/wallpaper.png
 wget https://raw.githubusercontent.com/chiru-no/cloveros/master/home/user/screenfetch-dev
+chmod +x screenfetch-dev
 echo -e "session = /home/$user/.rtorrent\ndirectory = /home/$user/Downloads/\nport_range = 53165-62153\ndht = on\npeer_exchange = yes\nuse_udp_trackers = yes" > .rtorrent.rc
 mkdir Downloads
 mkdir .rtorrent
