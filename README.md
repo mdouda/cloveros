@@ -72,3 +72,7 @@ to
 `EMERGE_DEFAULT_OPTS="--keep-going=y --autounmask-write=y --jobs=2"`
 
 This disables the binhost and uses Portage's ebuilds for packages.
+
+### How do I install systemd and pulseaudio?
+
+I am proud to announce that CloverOS is 100% Poettering-free.
