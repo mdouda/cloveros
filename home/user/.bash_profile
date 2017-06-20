@@ -34,7 +34,7 @@ if [ -z "$DISPLAY" ]; then
             echo ${wms[$choice]} is not installed. Install it by running:
             echo $ sudo emerge ${wmspkg[$choice]}
             read -p "Install now? [y/n] " -n 1 installyn
-            if [ "$installyn" -eq "y" || "$installyn" -eq "Y" ]; then
+            if [[ "$installyn" == "y" || "$installyn" == "Y" ]]; then
                 sudo emerge -v ${wmspkg[$choice]}
                 export DISPLAY=:0
                 X&
