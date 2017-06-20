@@ -1,6 +1,6 @@
 if [ -z "$DISPLAY" ]; then
     echo "WM Options: (y) Default (i) i3 (a) Awesome (k) KDE (m) MATE (x) XFCE (l) LXDE"
-    read -p "Start X? [y/n]" -n 1 choice
+    read -p "Start X? [y/n] " -n 1 choice
     declare -A wms
     declare -A wmspkg
     declare -A wmspost
@@ -38,7 +38,7 @@ if [ -z "$DISPLAY" ]; then
             X&
             sleep 1
             ${wms[$choice]}&
-            ${wmspost[$choice]}
+            ${wmspost[$choice]}&
         fi
     fi
 fi
