@@ -39,6 +39,7 @@ menu "Applications"
 "filezilla" !"filezilla &"
 "rtorrent" !"aterm +sb -tr -sh 30 -e rtorrent &"
 "weechat" !"aterm +sb -tr -sh 30 -e weechat &"
+"exit X" !"killall X"
 "reboot" !"sudo reboot"
 "shutdown" !"sudo poweroff"
 }
