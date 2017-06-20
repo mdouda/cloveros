@@ -25,7 +25,7 @@ if [ -z "$DISPLAY" ]; then
     wmspost[i]="feh --bg-max wallpaper.png"
     wmspost[a]="feh --bg-max wallpaper.png"
     wmspost[k]=""
-    wmspost[m]="feh --bg-max wallpaper.png"
+    wmspost[m]=""
     wmspost[x]="feh --bg-max wallpaper.png"
     wmspost[l]="feh --bg-max wallpaper.png"
     if [ -n "${wms[$choice] + 1}" ]; then
