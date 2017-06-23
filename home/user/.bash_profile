@@ -1,5 +1,5 @@
 if [ -z "$DISPLAY" ]; then
-    echo "WM Options: (y) Default (i) i3 (a) Awesome (o) Openbox (k) KDE (m) MATE (x) XFCE (l) LXDE"
+    echo "WM Options: (y) Default (i) i3 (a) Awesome (o) Openbox (e) Enlightenment (k) KDE (m) MATE (x) XFCE (l) LXDE"
     read -p "Start X? [y/n] " -n 1 choice
     declare -A wms
     declare -A wmspkg
