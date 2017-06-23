@@ -9,6 +9,7 @@ if [ -z "$DISPLAY" ]; then
     wms[i]=i3
     wms[a]=awesome
     wms[o]=openbox
+    wms[e]=enlightenment
     wms[k]=startkde
     wms[m]=mate-session
     wms[x]=startxfce4
@@ -18,6 +19,7 @@ if [ -z "$DISPLAY" ]; then
     wmspkg[i]=i3
     wmspkg[a]=awesome
     wmspkg[o]=openbox
+    wmspkg[e]="enlightenment:0.17"
     wmspkg[k]=plasma-desktop
     wmspkg[m]=mate
     wmspkg[x]=xfce4-meta
@@ -27,6 +29,7 @@ if [ -z "$DISPLAY" ]; then
     wmspost[i]="feh --bg-max wallpaper.png"
     wmspost[a]=""
     wmspost[o]="feh --bg-max wallpaper.png"
+    wmspost[e]=""
     wmspost[k]=""
     wmspost[m]=""
     wmspost[x]=""
