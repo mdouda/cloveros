@@ -9,7 +9,7 @@ mkfs.ext4 -F /dev/sda1
 mount /dev/sda1 gentoo
 
 cd gentoo
-wget http://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20170615.tar.bz2
+wget https://gentoo.osuosl.org/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20170622.tar.bz2
 tar pxf stage3*
 rm stage3*
 
