@@ -5,10 +5,26 @@ screenshot-template="%F_%P"
 
 profile=opengl-hq
 video-sync=display-resample
-correct-downscaling=yes
-sigmoid-upscaling=yes
-deband=yes
+scaler-resizes-only=yes
 dither-depth=auto
-#scale=ewa_lanczossharp
-#cscale=ewa_lanczossoft
-#dscale=mitchelll
+
+[high]
+hwdec=no
+screenshot-png-compression=9
+scale=haasnsoft
+scale-antiring=0.7
+cscale=ewa_lanczossoft
+cscale-antiring=0.7
+dscale=mitchell
+sigmoid-upscaling=yes
+sigmoid-slope=10.0
+deband-grain=24
+deband-iterations=2
+deband-range=12
+deband-threshold=48
+hdr-tone-mapping=reinhard
+tone-mapping-param=0.4
+
+[ultra]
+profile=high
+# add mega rice here

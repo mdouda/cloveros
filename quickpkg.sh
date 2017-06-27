@@ -1,5 +1,6 @@
 emerge --sync
 emerge -uvDN world
+emerge --depclean
 mv /usr/portage/packages/s/ .
 rm -Rf /usr/portage/packages/*
 quickpkg --include-unmodified-config=y "*/*" | ansi2html | tail -n +1081 | head -n -7 > s/quickpkg.txt

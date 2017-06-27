@@ -1,8 +1,17 @@
 #preference
+x11-wm/compiz-fusion emerald unsupported
+media-sound/audacious qt5
+media-plugins/audacious-plugins qt5
+x11-themes/qtcurve qt5
+mail-client/thunderbird -crypt system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-sqlite
+media-fonts/acroread-asianfonts -minimal
+kde-plasma/plasma-meta bluetooth grub
+app-misc/neofetch X
+app-emulation/virtualbox-guest-additions X
+media-gfx/krita color-management
 app-emulation/wine -custom-cflags
 x11-wm/xmonad -default-term
 sys-boot/grub -grub_platforms_efi-64
-app-crypt/pinentry -gnome-keyring
 sys-auth/pambase -gnome-keyring
 sys-block/gparted btrfs dmraid f2fs fat hfs jfs mdadm ntfs reiserfs reiser4 xfs
 kde-plasma/powerdevil -wireless
@@ -34,6 +43,8 @@ app-misc/recoll qt5
 media-gfx/fontforge X gtk
 media-gfx/graphviz gtk
 app-emulation/virt-manager gtk
+sys-apps/xdg-desktop-portal-gtk X
+sys-apps/flatpak gtk
 media-video/xine-ui curl X
 app-admin/conky X
 dev-lang/R X cairo
@@ -931,3 +942,22 @@ sys-apps/dbus X
 # required by @selected
 # required by @world (argument)
 >=net-libs/gtk-vnc-0.6.0 python
+# required by dev-python/wxpython-3.0.2.0::gentoo
+# required by sci-electronics/kicad-4.0.4::gentoo[python]
+# required by kicad (argument)
+>=x11-libs/wxGTK-3.0.2.0-r2 tiff
+# required by x11-libs/wxGTK-3.0.2.0-r2::gentoo[X,tiff]
+# required by sci-electronics/kicad-4.0.4::gentoo
+# required by kicad (argument)
+>=media-libs/tiff-4.0.8 abi_x86_32
+# required by gnome-base/gnome-keyring-3.20.0::gentoo
+# required by app-crypt/libsecret-0.18.5::gentoo
+# required by sys-apps/gnome-disk-utility-3.22.1::gentoo
+# required by mate-base/mate-1.12-r1::gentoo[extras]
+# required by @selected
+# required by @world (argument)
+>=app-crypt/pinentry-0.9.7-r1 gnome-keyring
+# required by media-plugins/vdr-graphtft-0.3.7-r1::gentoo
+# required by x11-themes/vdrgraphtft-deepblue-0.3.1::gentoo
+# required by vdrgraphtft-deepblue (argument)
+>=media-video/vdr-2.2.0-r1 graphtft

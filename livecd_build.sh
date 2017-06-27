@@ -3,43 +3,12 @@ if [ "$(id -u)" != "0" ]; then
    exit 1
 fi
 
-read -p "Automatic partitioning (a) or manual partitioning? (m) [a/m] " -n 1 partitioning
-echo
-if [[ $partitioning = "a" ]]; then
-    read -e -p "Enter drive for CloverOS installation: " -i "/dev/sda" drive
-    partition=${drive}1
-elif [[ $partitioning = "m" ]]; then
-    read -e -p "Enter partition for CloverOS installation: " -i "/dev/sda1" partition
-    drive=${partition%"${partition##*[!0-9]}"}
-else
-    echo "Invalid option."
-    exit 1
-fi
-drive=${drive#*/dev/}
-partition=${partition#*/dev/}
-read -p "Partitioning: $partitioning
-Drive: /dev/$drive
-Partition: /dev/$partition
-Is this correct? [y/n] " -n 1 yn
-if [[ $yn != "y" ]]; then
-    exit 1
-fi
-echo
+rootpassword=password
+user=user
+userpassword=password
 
-read -p "Enter preferred root password " rootpassword
-read -p "Enter preferred username " user
-read -p "Enter preferred user password " userpassword
-
-mkdir gentoo
-
-if [[ $partitioning = "a" ]]; then
-    echo -e "o\nn\np\n1\n\n\nw" | fdisk /dev/$drive
-fi
-mkfs.ext4 -F /dev/$partition
-tune2fs -O ^metadata_csum /dev/$partition
-mount /dev/$partition gentoo
-
-cd gentoo
+mkdir image
+cd image
 
 wget https://gentoo.osuosl.org/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20170622.tar.bz2
 tar pxf stage3*
@@ -55,10 +24,6 @@ cat << EOF | chroot .
 emerge-webrsync
 
 echo -e '\nPORTAGE_BINHOST="https://cloveros.ga"\nMAKEOPTS="-j8"\nEMERGE_DEFAULT_OPTS="--keep-going=y --autounmask-write=y --jobs=2 -G"\nCFLAGS="-O3 -pipe -march=native -funroll-loops -floop-block -floop-interchange -floop-strip-mine -ftree-loop-distribution"\nCXXFLAGS="\${CFLAGS}"' >> /etc/portage/make.conf
-
-#emerge gentoo-sources genkernel
-#wget http://liquorix.net/sources/4.9/config.amd64
-#genkernel --kernel-config=config.amd64 all
 
 wget -O - https://raw.githubusercontent.com/chiru-no/cloveros/master/kernel.tar.xz | tar xJ -C /boot/
 mkdir /lib/modules/
@@ -76,7 +41,7 @@ useradd $user
 echo -e "$userpassword\n$userpassword" | passwd $user
 gpasswd -a $user wheel
 
-emerge -1 openssh openssl gcc
+emerge -1 openssh openssl
 echo "media-video/mpv ~amd64" >> /etc/portage/package.accept_keywords
 emerge xorg-server twm feh aterm sudo xfe wpa_supplicant dash porthole firefox emacs gimp mpv smplayer rtorrent weechat conky linux-firmware alsa-utils rxvt-unicode zsh zsh-completions gentoo-zsh-completions inconsolata vlgothic liberation-fonts bind-tools colordiff xdg-utils nano filezilla scrot compton
 rm -Rf /usr/portage/packages/*
@@ -112,8 +77,30 @@ cd .mpv
 wget https://raw.githubusercontent.com/chiru-no/cloveros/master/home/user/.mpv/config
 chown -R $user /home/$user/
 
+emerge gparted squashfs-tools
+sed -i "s@c1:12345:respawn:/sbin/agetty --noclear 38400 tty1 linux@c1:12345:respawn:/sbin/agetty -a user --noclear 38400 tty1 linux@" /etc/inittab
+sed -i 's/^/#/' /home/user/.bash_profile
+echo -e 'if [ -z "\$DISPLAY" ]; then
+export DISPLAY=:0
+X&
+sleep 1
+twm&
+feh --bg-max wallpaper.png
+urxvt -e sudo ./livecd_install.sh
+fi' >> /home/user/.bash_profile
+
+wget https://raw.githubusercontent.com/chiru-no/cloveros/master/livecd_install.sh -O /home/user/livecd_install.sh
+chmod +x /home/user/livecd_install.sh
+
+emerge -uvD world
+emerge --depclean
+rm -Rf /usr/portage/packages/*
+
 exit
 
 EOF
 
-reboot
+cd ..
+umount -l image/*
+mksquashfs image image.squashfs -b 1024k -comp xz -Xbcj x86 -Xdict-size 100%
+rm -Rf image/
