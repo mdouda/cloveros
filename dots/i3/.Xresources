@@ -1,4 +1,5 @@
-! Dylans Xresources
+! CloverOS Xresources
+! Inspired by dylanaraps
 
 ! Desktop/Laptop Settings.
 URxvt*font: Terminus:size=12
