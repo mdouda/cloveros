@@ -1,8 +1,10 @@
 # 
 #  i3 Config.
 
-exec xrandr --output DVI-I-1 --auto --output HDMI-1 --auto --left-of DVI-I-1 --primary
-exec compton --config /home/joe/.config/compton.conf
+## Uncomment and change if using dual monitor
+# exec xrandr --output DVI-I-1 --auto --output HDMI-1 --auto --left-of DVI-I-1 --primary
+
+exec compton --config ${HOME}/.config/compton.conf
 
 # Title bars with padding.
 # We first set the titlebar font size to a larger font size than desired
