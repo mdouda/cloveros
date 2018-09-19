@@ -41,7 +41,7 @@ mount /dev/$partition gentoo
 
 cd gentoo
 
-wget https://gentoo.osuosl.org/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20170622.tar.bz2
+wget http://distfiles.gentoo.org/releases/amd64/autobuilds/20180918T214502Z/stage3-amd64-20180918T214502Z.tar.xz
 tar pxf stage3*
 rm -f stage3*
 
@@ -54,15 +54,15 @@ cat << EOF | chroot .
 
 emerge-webrsync
 
-echo -e '\nPORTAGE_BINHOST="https://cloveros.ga"\nMAKEOPTS="-j8"\nEMERGE_DEFAULT_OPTS="--keep-going=y --autounmask-write=y --jobs=2 -G"\nCFLAGS="-O3 -pipe -march=native -funroll-loops -floop-block -floop-interchange -floop-strip-mine -ftree-loop-distribution"\nCXXFLAGS="\${CFLAGS}"' >> /etc/portage/make.conf
+echo -e '\nMAKEOPTS="-j2"\nEMERGE_DEFAULT_OPTS="--keep-going=y --autounmask-write=y --jobs=2"\nCFLAGS="-O3 -pipe -march=native"\nCXXFLAGS="\${CFLAGS}"' >> /etc/portage/make.conf
 
 #emerge gentoo-sources genkernel
 #wget http://liquorix.net/sources/4.9/config.amd64
 #genkernel --kernel-config=config.amd64 all
 
-wget -O - https://raw.githubusercontent.com/chiru-no/cloveros/master/kernel.tar.xz | tar xJ -C /boot/
+wget -O - https://github.com/TheNightmanCodeth/cloveros/raw/master/kernel.tar.xz | tar xJ -C /boot/
 mkdir /lib/modules/
-wget -O - https://raw.githubusercontent.com/chiru-no/cloveros/master/modules.tar.xz | tar xJ -C /lib/modules/
+wget -O - https://github.com/TheNightmanCodeth/cloveros/raw/master/modules.tar.xz | tar xJ -C /lib/modules/
 
 emerge grub dhcpcd
 
@@ -76,9 +76,9 @@ useradd $user
 echo -e "$userpassword\n$userpassword" | passwd $user
 gpasswd -a $user wheel
 
-emerge -1 openssh openssl gcc
+emerge  openssh openssl gcc
 echo "media-video/mpv ~amd64" >> /etc/portage/package.accept_keywords
-emerge xorg-server twm feh aterm sudo xfe wpa_supplicant dash porthole firefox emacs gimp mpv smplayer rtorrent weechat conky linux-firmware alsa-utils rxvt-unicode zsh zsh-completions gentoo-zsh-completions inconsolata vlgothic liberation-fonts bind-tools colordiff xdg-utils nano filezilla scrot compton
+emerge xorg-server twm feh aterm sudo xfe wpa_supplicant dash porthole firefox vim gimp mpv smplayer rtorrent weechat conky linux-firmware alsa-utils rxvt-unicode zsh zsh-completions gentoo-zsh-completions inconsolata vlgothic liberation-fonts bind-tools colordiff xdg-utils nano filezilla scrot compton
 rm -Rf /usr/portage/packages/*
 sed -i "s/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/" /etc/sudoers
 sed -Ei "s@c([2-6]):2345:respawn:/sbin/agetty 38400 tty@#\0@" /etc/inittab
@@ -97,12 +97,12 @@ gpasswd -a $user audio
 gpasswd -a $user video
 cd /home/$user/
 rm .bash_profile
-wget https://raw.githubusercontent.com/chiru-no/cloveros/master/home/user/.bash_profile
-wget https://raw.githubusercontent.com/chiru-no/cloveros/master/home/user/.zshrc
-wget https://raw.githubusercontent.com/chiru-no/cloveros/master/home/user/.twmrc
-wget https://raw.githubusercontent.com/chiru-no/cloveros/master/home/user/.Xdefaults
-wget https://raw.githubusercontent.com/chiru-no/cloveros/master/home/user/wallpaper.png
-wget https://raw.githubusercontent.com/chiru-no/cloveros/master/home/user/screenfetch-dev
+wget https://github.com/TheNightmanCodeth/cloveros/raw/master/home/user/.bash_profile
+wget https://github.com/TheNightmanCodeth/cloveros/raw/master/home/user/.zshrc
+wget https://github.com/TheNightmanCodeth/cloveros/raw/master/home/user/.twmrc
+wget https://github.com/TheNightmanCodeth/cloveros/raw/master/home/user/.Xdefaults
+wget https://github.com/TheNightmanCodeth/cloveros/raw/master/home/user/wallpaper.png
+wget https://github.com/TheNightmanCodeth/cloveros/raw/master/home/user/screenfetch-dev
 chmod +x screenfetch-dev
 echo -e "session = /home/$user/.rtorrent\ndirectory = /home/$user/Downloads/\nport_range = 53165-62153\ndht = on\npeer_exchange = yes\nuse_udp_trackers = yes" > .rtorrent.rc
 mkdir Downloads
