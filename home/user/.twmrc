@@ -27,13 +27,21 @@ IconManagerBackground "black"
 menu "Applications"
 {
 "Applications" f.title
-"aterm" !"aterm +sb -tr -sh 30 -e dash &"
-"porthole" !"porthole &"
+"aterm" !"aterm +sb -tr -sh 10 -e dash &"
+"urxvt" !"urxvt -e zsh &"
 "xfe" !"xfe &"
+"wifi" !"wpa_gui &"
+"porthole" !"porthole &"
 "firefox" !"firefox &"
 "emacs" !"emacs &"
 "gimp" !"gimp &"
 "smplayer" !"smplayer &"
+"filezilla" !"filezilla &"
+"rtorrent" !"aterm +sb -tr -sh 30 -e rtorrent &"
+"weechat" !"aterm +sb -tr -sh 30 -e weechat &"
+"exit X" !"killall X"
+"reboot" !"sudo reboot"
+"shutdown" !"sudo poweroff"
 }
 
 IconManagerDontShow

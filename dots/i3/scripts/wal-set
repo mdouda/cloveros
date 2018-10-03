@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Source generated colors.
+source "${HOME}/.cache/wal/colors.sh"
+
+set_wallpaper() {
+    feh --bg-tile $(< ${HOME}/.cache/wal/wal)
+}
+
+reload_dunst() {
+    pkill dunst && \
+        dunst \
+            -lb "$color15" \
+            -nb "$color15" \
+            -cb "$color15" \
+            -lf "$color0"  \
+            -bf "$color0"  \
+            -cf "$color9" &
+}
+
+set_bar() {
+    pkill bar
+    scripts/bar "$color15" "$color0" 2>/dev/null &
+}
+
+set_scss() {
+    rm ${HOME}/Documents/homepage/xprmt.github.io-master/terminal/css
+    sassc --style expanded "${HOME}/Documents/homepage/xprmt.github.io-master/terminal/scss/style.scss" > "${HOME}/Documents/homepage/xprmt.github.io-master/terminal/style.css"
+}
+
+main() {
+    set_wallpaper &
+    reload_dunst &
+    set_bar &
+    set_scss &
+}
+
+main >/dev/null 2>&1
