@@ -1,0 +1,330 @@
+
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+p7zip Version 16.02 (locale=en_US.utf8,Utf16=on,HugeFiles=on,64 bits,4 CPUs Intel(R) Core(TM) i5-3320M CPU @ 2.60GHz (306A9),ASM,AES-NI)
+
+Scanning the drive for archives:
+1 file, 2049490944 bytes (1955 MiB)
+
+Extracting archive: debian-live-9.5.0-amd64-mate.iso
+
+WARNINGS:
+There are data after the end of archive
+
+--
+Path = debian-live-9.5.0-amd64-mate.iso
+Type = Iso
+WARNINGS:
+There are data after the end of archive
+Physical Size = 2048540672
+Tail Size = 950272
+Comment = 
+Volume: d-live 9.5.0 ma amd64
+Preparer: XORRISO-1.4.6 2016.09.16.133001, LIBISOBURN-1.4.6, LIBISOFS-1.4.6, LIBBURN-1.4.6
+Created = 2018-07-14 12:58:49
+Modified = 2018-07-14 12:58:49
+
+Everything is Ok
+
+Archives with Warnings: 1
+
+Warnings: 1
+Folders: 301
+Files: 707
+Size:       2047503685
+Compressed: 2049490944
+--2018-10-03 15:01:08--  https://github.com/TheNightmanCodeth/cloveros/raw/master/installscript.sh
+Resolving github.com... 192.30.253.112, 192.30.253.113
+Connecting to github.com|192.30.253.112|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/TheNightmanCodeth/cloveros/master/installscript.sh [following]
+--2018-10-03 15:01:08--  https://raw.githubusercontent.com/TheNightmanCodeth/cloveros/master/installscript.sh
+Resolving raw.githubusercontent.com... 151.101.20.133
+Connecting to raw.githubusercontent.com|151.101.20.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 4326 (4.2K) [text/plain]
+Saving to: ‘CloverOS-DebianLive/live/squashfs-root/usr/bin/CloverOS’
+
+     0K ....                                                  100% 34.3M=0s
+
+2018-10-03 15:01:08 (34.3 MB/s) - ‘CloverOS-DebianLive/live/squashfs-root/usr/bin/CloverOS’ saved [4326/4326]
+
+xorriso 1.4.8 : RockRidge filesystem manipulator, libburnia project.
+
+Drive current: -outdev 'stdio:jOS-live-v0.01-xfce.iso'
+Media current: stdio file, overwriteable
+Media status : is blank
+Media summary: 0 sessions, 0 data blocks, 0 data,  116g free
+xorriso : NOTE : -as mkisofs: Ignored option '-cache-inodes'
+Added to ISO image: directory '/'='/home/joe/Documents/jOS/liveCD/debian/CloverOS-DebianLive'
+xorriso : UPDATE : 1010 files added in 1 seconds
+xorriso : UPDATE : 1010 files added in 1 seconds
+xorriso : NOTE : Copying to System Area: 432 bytes from file '/usr/share/syslinux/isohdpfx.bin'
+libisofs: NOTE : Automatically adjusted MBR geometry to 1023/115/32
+libisofs: NOTE : Aligned image size to cylinder size by 290 blocks
+xorriso : UPDATE :  1.78% done
+xorriso : UPDATE :  60.08% done
+xorriso : UPDATE :  87.72% done
+xorriso : UPDATE :  95.67% done
+xorriso : UPDATE :  97.72% done
+ISO image produced: 941160 sectors
+Written to medium : 941160 sectors at LBA 0
+Writing to 'stdio:jOS-live-v0.01-xfce.iso' completed successfully.
+
+
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+p7zip Version 16.02 (locale=en_US.utf8,Utf16=on,HugeFiles=on,64 bits,4 CPUs Intel(R) Core(TM) i5-3320M CPU @ 2.60GHz (306A9),ASM,AES-NI)
+
+Scanning the drive for archives:
+1 file, 2049490944 bytes (1955 MiB)
+
+Extracting archive: debian-live-9.5.0-amd64-mate.iso
+
+WARNINGS:
+There are data after the end of archive
+
+--
+Path = debian-live-9.5.0-amd64-mate.iso
+Type = Iso
+WARNINGS:
+There are data after the end of archive
+Physical Size = 2048540672
+Tail Size = 950272
+Comment = 
+Volume: d-live 9.5.0 ma amd64
+Preparer: XORRISO-1.4.6 2016.09.16.133001, LIBISOBURN-1.4.6, LIBISOFS-1.4.6, LIBBURN-1.4.6
+Created = 2018-07-14 12:58:49
+Modified = 2018-07-14 12:58:49
+
+
+Archives with Errors: 1
+
+Warnings: 1
+
+
+
+Break signaled
+CloverOS-DebianLive/live/squashfs-root/usr/bin/CloverOS: No such file or directory
+chmod: cannot access 'CloverOS-DebianLive/live/squashfs-root/usr/bin/CloverOS': No such file or directory
+xorriso 1.4.8 : RockRidge filesystem manipulator, libburnia project.
+
+Drive current: -outdev 'stdio:jOS-live-v0.01-xfce.iso'
+Media current: stdio file, overwriteable
+Media status : is blank
+Media summary: 0 sessions, 0 data blocks, 0 data,  118g free
+xorriso : NOTE : -as mkisofs: Ignored option '-cache-inodes'
+Added to ISO image: directory '/'='/home/joe/Documents/jOS/liveCD/debian/CloverOS-DebianLive'
+xorriso : UPDATE : 287 files added in 1 seconds
+xorriso : UPDATE : 287 files added in 1 seconds
+xorriso : NOTE : Copying to System Area: 432 bytes from file '/usr/share/syslinux/isohdpfx.bin'
+libisofs: NOTE : Aligned image size to cylinder size by 381 blocks
+ISO image produced: 33792 sectors
+Written to medium : 33792 sectors at LBA 0
+Writing to 'stdio:jOS-live-v0.01-xfce.iso' completed successfully.
+
+
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+p7zip Version 16.02 (locale=en_US.utf8,Utf16=on,HugeFiles=on,64 bits,4 CPUs Intel(R) Core(TM) i5-3320M CPU @ 2.60GHz (306A9),ASM,AES-NI)
+
+Scanning the drive for archives:
+1 file, 2049490944 bytes (1955 MiB)
+
+Extracting archive: debian-live-9.5.0-amd64-mate.iso
+
+WARNINGS:
+There are data after the end of archive
+
+--
+Path = debian-live-9.5.0-amd64-mate.iso
+Type = Iso
+WARNINGS:
+There are data after the end of archive
+Physical Size = 2048540672
+Tail Size = 950272
+Comment = 
+Volume: d-live 9.5.0 ma amd64
+Preparer: XORRISO-1.4.6 2016.09.16.133001, LIBISOBURN-1.4.6, LIBISOFS-1.4.6, LIBBURN-1.4.6
+Created = 2018-07-14 12:58:49
+Modified = 2018-07-14 12:58:49
+
+Everything is Ok
+
+Archives with Warnings: 1
+
+Warnings: 1
+Folders: 301
+Files: 707
+Size:       2047503685
+Compressed: 2049490944
+
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+p7zip Version 16.02 (locale=en_US.utf8,Utf16=on,HugeFiles=on,64 bits,4 CPUs Intel(R) Core(TM) i5-3320M CPU @ 2.60GHz (306A9),ASM,AES-NI)
+
+Scanning the drive for archives:
+1 file, 2049490944 bytes (1955 MiB)
+
+Extracting archive: debian-live-9.5.0-amd64-mate.iso
+
+WARNINGS:
+There are data after the end of archive
+
+--
+Path = debian-live-9.5.0-amd64-mate.iso
+Type = Iso
+WARNINGS:
+There are data after the end of archive
+Physical Size = 2048540672
+Tail Size = 950272
+Comment = 
+Volume: d-live 9.5.0 ma amd64
+Preparer: XORRISO-1.4.6 2016.09.16.133001, LIBISOBURN-1.4.6, LIBISOFS-1.4.6, LIBBURN-1.4.6
+Created = 2018-07-14 12:58:49
+Modified = 2018-07-14 12:58:49
+
+
+Would you like to replace the existing file:
+  Path:     CloverOS-DebianLive/boot/grub/efi.img
+  Size:     425984 bytes (416 KiB)
+  Modified: 2018-07-10 23:19:58
+with the file from archive:
+  Path:     boot/grub/efi.img
+  Size:     425984 bytes (416 KiB)
+  Modified: 2018-07-10 23:19:58
+? (Y)es / (N)o / (A)lways / (S)kip all / A(u)to rename all / (Q)uit? --2018-10-03 17:53:55--  https://github.com/TheNightmanCodeth/cloveros/raw/jOS/installscript.sh
+Resolving github.com... 192.30.253.112, 192.30.253.113
+Connecting to github.com|192.30.253.112|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/TheNightmanCodeth/cloveros/jOS/installscript.sh [following]
+--2018-10-03 17:53:55--  https://raw.githubusercontent.com/TheNightmanCodeth/cloveros/jOS/installscript.sh
+Resolving raw.githubusercontent.com... 151.101.204.133
+Connecting to raw.githubusercontent.com|151.101.204.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 4654 (4.5K) [text/plain]
+Saving to: ‘CloverOS-DebianLive/live/squashfs-root/usr/bin/CloverOS’
+
+     0K ....                                                  100% 18.5M=0s
+
+2018-10-03 17:53:55 (18.5 MB/s) - ‘CloverOS-DebianLive/live/squashfs-root/usr/bin/CloverOS’ saved [4654/4654]
+
+xorriso 1.4.8 : RockRidge filesystem manipulator, libburnia project.
+
+Drive current: -outdev 'stdio:jOS-live-v0.01-xfce.iso'
+Media current: stdio file, overwriteable
+Media status : is blank
+Media summary: 0 sessions, 0 data blocks, 0 data,  118g free
+xorriso : NOTE : -as mkisofs: Ignored option '-cache-inodes'
+Added to ISO image: directory '/'='/home/joe/Documents/jOS/liveCD/debian/CloverOS-DebianLive'
+xorriso : UPDATE : 1009 files added in 1 seconds
+xorriso : UPDATE : 1009 files added in 1 seconds
+xorriso : NOTE : Copying to System Area: 432 bytes from file '/usr/share/syslinux/isohdpfx.bin'
+libisofs: NOTE : Aligned image size to cylinder size by 214 blocks
+xorriso : UPDATE :  18.43% done
+
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+p7zip Version 16.02 (locale=en_US.utf8,Utf16=on,HugeFiles=on,64 bits,4 CPUs Intel(R) Core(TM) i5-3320M CPU @ 2.60GHz (306A9),ASM,AES-NI)
+
+Scanning the drive for archives:
+1 file, 2049490944 bytes (1955 MiB)
+
+Extracting archive: debian-live-9.5.0-amd64-mate.iso
+
+WARNINGS:
+There are data after the end of archive
+
+--
+Path = debian-live-9.5.0-amd64-mate.iso
+Type = Iso
+WARNINGS:
+There are data after the end of archive
+Physical Size = 2048540672
+Tail Size = 950272
+Comment = 
+Volume: d-live 9.5.0 ma amd64
+Preparer: XORRISO-1.4.6 2016.09.16.133001, LIBISOBURN-1.4.6, LIBISOFS-1.4.6, LIBBURN-1.4.6
+Created = 2018-07-14 12:58:49
+Modified = 2018-07-14 12:58:49
+
+Everything is Ok
+
+Archives with Warnings: 1
+
+Warnings: 1
+Folders: 301
+Files: 707
+Size:       2047503685
+Compressed: 2049490944
+--2018-10-03 17:55:56--  https://github.com/TheNightmanCodeth/cloveros/raw/jOS/installscript.sh
+Resolving github.com... 192.30.253.113, 192.30.253.112
+Connecting to github.com|192.30.253.113|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/TheNightmanCodeth/cloveros/jOS/installscript.sh [following]
+--2018-10-03 17:55:56--  https://raw.githubusercontent.com/TheNightmanCodeth/cloveros/jOS/installscript.sh
+Resolving raw.githubusercontent.com... 151.101.204.133
+Connecting to raw.githubusercontent.com|151.101.204.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 4654 (4.5K) [text/plain]
+Saving to: ‘CloverOS-DebianLive/live/squashfs-root/usr/bin/CloverOS’
+
+     0K ....                                                  100% 10.7M=0s
+
+2018-10-03 17:55:57 (10.7 MB/s) - ‘CloverOS-DebianLive/live/squashfs-root/usr/bin/CloverOS’ saved [4654/4654]
+
+xorriso 1.4.8 : RockRidge filesystem manipulator, libburnia project.
+
+Drive current: -outdev 'stdio:jOS-live-v0.01-xfce.iso'
+Media current: stdio file, overwriteable
+Media status : is blank
+Media summary: 0 sessions, 0 data blocks, 0 data,  110g free
+xorriso : NOTE : -as mkisofs: Ignored option '-cache-inodes'
+xorriso : FAILURE : Cannot determine attributes of source file '/home/joe/Documents/jOS/liveCD/debian/jOS-DebianLive' : No such file or directory
+xorriso : aborting : -abort_on 'FAILURE' encountered 'FAILURE'
+
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+p7zip Version 16.02 (locale=en_US.utf8,Utf16=on,HugeFiles=on,64 bits,4 CPUs Intel(R) Core(TM) i5-3320M CPU @ 2.60GHz (306A9),ASM,AES-NI)
+
+Scanning the drive for archives:
+1 file, 2049490944 bytes (1955 MiB)
+
+Extracting archive: debian-live-9.5.0-amd64-mate.iso
+
+WARNINGS:
+There are data after the end of archive
+
+--
+Path = debian-live-9.5.0-amd64-mate.iso
+Type = Iso
+WARNINGS:
+There are data after the end of archive
+Physical Size = 2048540672
+Tail Size = 950272
+Comment = 
+Volume: d-live 9.5.0 ma amd64
+Preparer: XORRISO-1.4.6 2016.09.16.133001, LIBISOBURN-1.4.6, LIBISOFS-1.4.6, LIBBURN-1.4.6
+Created = 2018-07-14 12:58:49
+Modified = 2018-07-14 12:58:49
+
+Everything is Ok
+
+Archives with Warnings: 1
+
+Warnings: 1
+Folders: 301
+Files: 707
+Size:       2047503685
+Compressed: 2049490944
+--2018-10-03 18:11:02--  https://github.com/TheNightmanCodeth/jOS/raw/jOS/installscript.sh
+Resolving github.com... 192.30.253.113, 192.30.253.112
+Connecting to github.com|192.30.253.113|:443... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2018-10-03 18:11:03 ERROR 404: Not Found.
+
+
+UNIX-SIGNAL:  SIGHUP  errno= 0
+xorriso : ABORT : Trying to shut down busy drives
+xorriso : ABORT : Wait the normal burning time before any kill -9
+xorriso : UPDATE :  41.68% done, estimate finish Wed Oct 03 19:03:47 2018
+libburn : ABORT : Urged drive worker threads to do emergency halt
+libisofs: MISHAP : Image write cancelled
+libburn : FATAL : Burn run failed
+xorriso : ABORT : Drive is released and library is shut down now.
+xorriso : ABORT : Program done. Even if you do not see a shell prompt.
+

@@ -26,7 +26,7 @@ Drive: /dev/$drive
 Partition: /dev/$partition
 Is this correct? [y/n] " -n 1 yn
 if [[ $yn != "y" ]]; then
-    exit 1
+    exit 0
 fi
 echo
 
