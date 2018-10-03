@@ -3,12 +3,16 @@ if [ "$(id -u)" != "0" ]; then
    exit 1
 fi
 
+# Colors, bb
+normal=$'\e[0m'; red=$'\e[31;01m'; green=$'\e[32;01m'; yellow=$'\e[33;01m';
+
 read -p "Automatic partitioning (a) or manual partitioning? (m) [a/m] " -n 1 partitioning
 echo
 if [[ $partitioning = "a" ]]; then
     read -e -p "Enter drive for CloverOS installation: " -i "/dev/sda" drive
     partition=${drive}1
 elif [[ $partitioning = "m" ]]; then
+    echo "Make sure you've mounted your partitions to gentoo/*!!"
     read -e -p "Enter partition for CloverOS installation: " -i "/dev/sda1" partition
     drive=${partition%"${partition##*[!0-9]}"}
 else
@@ -41,7 +45,7 @@ mount /dev/$partition gentoo
 
 cd gentoo
 
-wget http://distfiles.gentoo.org/releases/amd64/autobuilds/20180918T214502Z/stage3-amd64-20180918T214502Z.tar.xz
+wget http://distfiles.gentoo.org/releases/amd64/autobuilds/20181002T214501Z/stage3-amd64-20181002T214501Z.tar.xz
 tar pxf stage3*
 rm -f stage3*
 
@@ -50,9 +54,46 @@ mount -t proc none proc
 mount --rbind /dev dev
 mount --rbind /sys sys
 
+echo "The default Desktop Environment is XFCE. Would you like to change that (y/N)?"
+read de_change
+if [ $"de_change" = "y"] || [ $"de_change" = "Y" ]; then
+    echo "Here are the available Desktop environments: \n"
+    echo -n -e "${green}* ${green}(X)FCE${normal} \n";
+    echo -n -e "${yellow}* ${green}(K)DE Plasma${normal} \n";
+    echo -n -e "${yellow}* ${green}(C)innamon${normal} \n";
+    echo -n -e "${yellow}* ${green}(LXD)E${normal} \n";
+    echo -n -e "${yellow}* ${green}(LXQ)T${normal} \n";
+    echo -n -e "${yellow}* ${green}(M)ATE${normal} \n";
+    echo 
+    echo "Which DE would you like (X|K|C|M|LXD|LXQ)?"
+    read DE
+    case $DE in        
+        K)
+            desktop="plasma-desktop"
+            ;;
+        C)
+            desktop="cinnamon"
+            ;;
+        M)
+            desktop="mate-base/mate"
+            ;;
+        LXD)
+            desktop="lxde-meta"
+            ;;
+        LXQ)
+            desktop="lxqt-meta"
+            ;;
+        *)
+            desktop="xfce4-meta xfce4-notifyd"
+            ;;
+    esac
+fi
+
+
 cat << EOF | chroot .
 
 emerge-webrsync
+eselect profile set 16
 
 echo -e '\nMAKEOPTS="-j2"\nEMERGE_DEFAULT_OPTS="--keep-going=y --autounmask-write=y --jobs=2"\nCFLAGS="-O3 -pipe -march=native"\nCXXFLAGS="\${CFLAGS}"' >> /etc/portage/make.conf
 
@@ -76,9 +117,9 @@ useradd $user
 echo -e "$userpassword\n$userpassword" | passwd $user
 gpasswd -a $user wheel
 
-emerge  openssh openssl gcc
-echo "media-video/mpv ~amd64" >> /etc/portage/package.accept_keywords
-emerge xorg-server twm feh aterm sudo xfe wpa_supplicant dash porthole firefox vim gimp mpv smplayer rtorrent weechat conky linux-firmware alsa-utils rxvt-unicode zsh zsh-completions gentoo-zsh-completions inconsolata vlgothic liberation-fonts bind-tools colordiff xdg-utils nano filezilla scrot compton
+emerge openssh openssl gcc
+
+emerge xorg-server $desktop sddm sudo xfe wpa_supplicant dash porthole firefox vim linux-firmware alsa-utils inconsolata vlgothic liberation-fonts bind-tools colordiff xdg-utils nano compton
 rm -Rf /usr/portage/packages/*
 sed -i "s/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/" /etc/sudoers
 sed -Ei "s@c([2-6]):2345:respawn:/sbin/agetty 38400 tty@#\0@" /etc/inittab
@@ -86,7 +127,9 @@ sed -i "s@c1:12345:respawn:/sbin/agetty 38400 tty1 linux@c1:12345:respawn:/sbin/
 sed -i "s/set timeout=5/set timeout=0/" /boot/grub/grub.cfg
 echo -e "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wheel\nupdate_config=1" > /etc/wpa_supplicant/wpa_supplicant.conf
 rc-update add alsasound default
+sed -i 's/DISPLAYMANAGER="xdm"/DISPLAYMANAGER="sddm"/' /etc/conf.d/xdm
 rc-update add wpa_supplicant default
+rc-update add xdm default
 eselect fontconfig enable 52-infinality.conf
 eselect infinality set infinality
 eselect lcdfilter set infinality
@@ -96,24 +139,14 @@ eselect locale set en_US.utf8
 gpasswd -a $user audio
 gpasswd -a $user video
 cd /home/$user/
-rm .bash_profile
-wget https://github.com/TheNightmanCodeth/cloveros/raw/master/home/user/.bash_profile
-wget https://github.com/TheNightmanCodeth/cloveros/raw/master/home/user/.zshrc
-wget https://github.com/TheNightmanCodeth/cloveros/raw/master/home/user/.twmrc
-wget https://github.com/TheNightmanCodeth/cloveros/raw/master/home/user/.Xdefaults
-wget https://github.com/TheNightmanCodeth/cloveros/raw/master/home/user/wallpaper.png
-wget https://github.com/TheNightmanCodeth/cloveros/raw/master/home/user/screenfetch-dev
-chmod +x screenfetch-dev
-echo -e "session = /home/$user/.rtorrent\ndirectory = /home/$user/Downloads/\nport_range = 53165-62153\ndht = on\npeer_exchange = yes\nuse_udp_trackers = yes" > .rtorrent.rc
+
 mkdir Downloads
-mkdir .rtorrent
-mkdir .mpv
-cd .mpv
-wget https://raw.githubusercontent.com/chiru-no/cloveros/master/home/user/.mpv/config
 chown -R $user /home/$user/
 
 exit
 
 EOF
+
+echo "Rebooting..."
 
 reboot
